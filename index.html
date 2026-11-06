@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Тестовая страница для проверки ИИ-консультанта Сварог на базе Яндекс AI Studio.">
+  <meta name="theme-color" content="#d92b31">
+  <title>Сварог — тест ИИ-консультанта</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; color: #242629; background: #f4f4f1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; }
+    .page { width: min(1060px, 100% - 48px); margin: auto; }
+    header { height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border-bottom: 1px solid #deded9; }
+    .brand { font-size: 24px; font-weight: 800; letter-spacing: .04em; }
+    .brand span { color: #d92b31; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #686b70; }
+    main { padding: 74px 0 130px; max-width: 760px; }
+    .eyebrow { display: flex; align-items: center; gap: 9px; color: #a8292e; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 8px; height: 8px; background: #d92b31; border-radius: 50%; }
+    h1 { max-width: 700px; margin: 22px 0; font-size: clamp(36px, 5.5vw, 60px); line-height: 1.08; font-weight: 700; letter-spacing: -.045em; }
+    .lead { max-width: 570px; font-size: 18px; line-height: 1.65; color: #64686e; margin: 0 0 34px; }
+    .instructions { background: #fff; border: 1px solid #e1e1dc; border-radius: 18px; padding: 28px 30px; }
+    h2 { margin: 0 0 22px; font-size: 18px; letter-spacing: -.02em; }
+    ol { display: grid; gap: 20px; list-style: none; padding: 0; margin: 0; counter-reset: steps; }
+    li { display: grid; grid-template-columns: 30px 1fr; align-items: start; gap: 14px; line-height: 1.5; font-size: 15px; }
+    li::before { counter-increment: steps; content: counter(steps); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #f6f0ef; color: #bb3439; font-size: 12px; font-weight: 700; }
+    li div { padding-top: 3px; }
+    .example { display: block; margin-top: 6px; color: #777b80; font-size: 14px; }
+    .status-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-top: 24px; }
+    .status { display: flex; align-items: center; gap: 9px; color: #666a70; font-size: 13px; line-height: 1.5; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #b58c39; flex: 0 0 auto; }
+    .status[data-state="loaded"] .dot { background: #258752; }
+    .status[data-state="error"] .dot { background: #d92b31; }
+    button { border: 1px solid #d4d4ce; border-radius: 8px; color: #3c4045; background: transparent; padding: 11px 15px; font: inherit; font-size: 13px; cursor: pointer; }
+    button:hover { background: #fff; border-color: #999d9f; }
+    button:focus-visible { outline: 3px solid #db7a7e; outline-offset: 4px; }
+    .note { margin: 18px 0 0; color: #7b7e82; font-size: 12px; line-height: 1.6; max-width: 580px; }
+    .failure { margin-top: 16px; border-left: 3px solid #d92b31; padding: 0 0 0 14px; font-size: 14px; line-height: 1.6; color: #a12b31; }
+    [hidden] { display: none !important; }
+    footer { padding-bottom: 30px; color: #8b8e91; font-size: 12px; }
+    @media (max-width: 600px) {
+      .page { width: calc(100% - 36px); }
+      header { height: 80px; }
+      .brand { font-size: 21px; }
+      .tag { font-size: 9px; max-width: 100px; text-align: right; line-height: 1.5; }
+      main { padding: 44px 0 100px; }
+      .lead { font-size: 16px; margin-bottom: 26px; }
+      .instructions { padding: 24px 20px; border-radius: 14px; }
+      li { gap: 10px; }
+      .status-row { align-items: flex-start; }
+      footer { padding-bottom: 100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">СВАРОГ<span>.</span></div>
+      <span class="tag">Тестовая страница</span>
+    </header>
+    <main>
+      <div class="eyebrow">Яндекс AI Studio</div>
+      <h1>Ваш ИИ-консультант.<br>Проверим в деле.</h1>
+      <p class="lead">Здесь подключён виджет из вашего скрипта. Откройте чат и проверьте, как помощник отвечает на вопросы клиентов.</p>
+      <section class="instructions" aria-labelledby="how-to">
+        <h2 id="how-to">Как начать проверку</h2>
+        <ol>
+          <li><div>Дождитесь появления кнопки чата на странице.</div></li>
+          <li><div>Откройте виджет и задайте вопрос.<span class="example">Например: «Помогите подобрать сварочный аппарат».</span></div></li>
+          <li><div>Проверьте ответ и продолжите диалог.</div></li>
+        </ol>
+      </section>
+      <div class="status-row">
+        <div class="status" id="load-status" data-state="loading" role="status" aria-live="polite">
+          <span class="dot" aria-hidden="true"></span><span id="status-text">Загружаем скрипт виджета…</span>
+        </div>
+        <button type="button" id="reload">Перезагрузить страницу</button>
+      </div>
+      <p class="note">Статус показывает загрузку скрипта. Появление чата и ответы помощника проверяются в самом виджете.</p>
+      <p class="failure" id="load-error" hidden>Не удалось загрузить виджет. Проверьте подключение к интернету и блокировщик скриптов, затем перезагрузите страницу.</p>
+      <noscript><p class="failure">Для работы виджета включите JavaScript в браузере.</p></noscript>
+    </main>
+    <footer>Страница для тестирования ИИ-консультанта Сварог</footer>
+  </div>
+  <script>
+    (() => {
+      const expectedSource = 'https://widget.aistudio.yandexcloud.net/scripts/widget-loader.js?channel-id=aacv4ffgbtkgspegdpdt';
+      const status = document.getElementById('load-status');
+      const text = document.getElementById('status-text');
+      const error = document.getElementById('load-error');
+      const timer = setTimeout(() => {
+        if (status.dataset.state === 'loading') text.textContent = 'Скрипт пока загружается…';
+      }, 15000);
+      document.getElementById('reload').addEventListener('click', () => location.reload());
+      document.addEventListener('load', event => {
+        if (event.target instanceof HTMLScriptElement && event.target.src === expectedSource) {
+          clearTimeout(timer);
+          status.dataset.state = 'loaded';
+          text.textContent = 'Скрипт виджета загружен';
+          error.hidden = true;
+        }
+      }, true);
+      document.addEventListener('error', event => {
+        if (event.target instanceof HTMLScriptElement && event.target.src === expectedSource) {
+          clearTimeout(timer);
+          status.dataset.state = 'error';
+          text.textContent = 'Ошибка загрузки скрипта';
+          error.hidden = false;
+        }
+      }, true);
+    })();
+  </script>
+  <script
+    src="https://widget.aistudio.yandexcloud.net/scripts/widget-loader.js?channel-id=aacv4ffgbtkgspegdpdt"
+    async
+  ></script>
+</body>
+</html>
